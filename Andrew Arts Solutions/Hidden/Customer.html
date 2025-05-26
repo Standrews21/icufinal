@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support - Andrew's Arts Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        header {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        /* Navigation Bar */
+        nav {
+            background: #1a252f;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #3498db;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 1s ease-in-out forwards;
+        }
+        section:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+        section:nth-child(even) {
+            animation-delay: 0.4s;
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        section p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #2c3e50;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #1a252f;
+            transform: scale(1.05);
+        }
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #3498db;
+        }
+        .footer-columns {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .footer-columns div {
+            text-align: left;
+        }
+        .footer-columns h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .footer-columns ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-columns ul li {
+            margin-bottom: 5px;
+        }
+        .subscribe-form {
+            margin-top: 20px;
+        }
+        .subscribe-form input[type="email"] {
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        .subscribe-form button {
+            padding: 10px 20px;
+            background: #1a252f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .subscribe-form button:hover {
+            background: #2c3e50;
+        }
+        @media (max-width: 768px) {
+            .footer-columns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-columns div {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Header Animation Background */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: skewX(-25deg);
+            animation: slideBackground 5s linear infinite;
+        }
+        @keyframes slideBackground {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        /* Customer Support Styles */
+        .support-hero {
+            background: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .support-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .support-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .support-options {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .support-option {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 30%;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .support-option:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .support-option h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .support-option p {
+            font-size: 1rem;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .support-option {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+        .contact-form {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+        }
+        .contact-form button {
+            background: #2c3e50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .contact-form button:hover {
+            background: #1a252f;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Andrew's Arts</div>
+        <div>
+            <a href="../index.html">Home</a>
+            <a href="../About.html">About Us</a>
+            <a href="../shop.html">Shop</a>
+            <a href="../Gallery.html">Gallery</a>
+            <a href="../Blog.html">Blog</a>
+            <a href="ContactUS.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Customer Support Hero Section -->
+    <header>
+        <h1>Customer Support – We’re Here for You!</h1>
+        <p>At Andrew's Arts Solutions, your satisfaction is our priority.</p>
+    </header>
+    <section class="support-hero">
+        <h1>💡 How can we assist you today?</h1>
+        <p>Whether you need assistance with orders, returns, payments, or just have a question, we’re here to help!</p>
+        <a href="#contact-form" class="cta-button">Contact Us Now</a>
+    </section>
+
+    <!-- Support Options -->
+    <div class="container">
+        <section>
+            <h2>✨ Your Experience Matters!</h2>
+            <p>Our dedicated support team is always working to provide fast, helpful, and friendly service.</p>
+            <div class="support-options">
+                <div class="support-option">
+                    <h3>📦 Track Your Order</h3>
+                    <p>Stay updated on your purchase. Let us know if you need help tracking your order.</p>
+                </div>
+                <div class="support-option">
+                    <h3>🔄 Returns & Refunds</h3>
+                    <p>Hassle-free solutions for your peace of mind. We’re here to make returns easy.</p>
+                </div>
+                <div class="support-option">
+                    <h3>💳 Payment Issues?</h3>
+                    <p>Get quick answers and support for any payment-related concerns.</p>
+                </div>
+                <div class="support-option">
+                    <h3>📝 General Inquiries</h3>
+                    <p>Need guidance? Our team is ready to assist with any questions you may have.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact-form" class="contact-form">
+            <h3>📞 Get in Touch</h3>
+            <form action="#">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+                <label for="email">Your Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <label for="message">Your Message</label>
+                <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div>
+                    <h3>Andrew's Arts</h3>
+                    <p>Bringing exceptional artistry to your home and life with carefully curated art solutions.</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../About.html">About Us</a></li>
+                        <li><a href="../shop.html">Shop</a></li>
+                        <li><a href="../Gallery.html">Gallery</a></li>
+                        <li><a href="../Blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="ContactUS.html">Contact Us</a></li>
+                        <li><a href="Return.html">Shipping & Returns</a></li>
+                        <li><a href="FAQ.html">FAQ</a></li>
+                        <li><a href="Policy.html">Privacy Policy</a></li>
+                        <li><a href="Conditons.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subscribe-form">
+                <h3>Stay Connected</h3>
+                <p>Subscribe to receive updates on new collections and special offers.</p>
+                <form action="#">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <p>&copy; 2025 Andrew's Arts Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Andrew's Arts Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #4caf50, #81c784);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        /* Navigation Bar */
+        nav {
+            background: #1a252f;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #4caf50;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 1s ease-in-out forwards;
+        }
+        section:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+        section:nth-child(even) {
+            animation-delay: 0.4s;
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        section p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        .privacy-section {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .privacy-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .privacy-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #4caf50;
+        }
+        .info-item {
+            margin-bottom: 15px;
+        }
+        .info-item strong {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .info-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #81c784;
+            transform: scale(1.05);
+        }
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #4caf50;
+        }
+        .footer-columns {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .footer-columns div {
+            text-align: left;
+        }
+        .footer-columns h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .footer-columns ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-columns ul li {
+            margin-bottom: 5px;
+        }
+        .subscribe-form {
+            margin-top: 20px;
+        }
+        .subscribe-form input[type="email"] {
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        .subscribe-form button {
+            padding: 10px 20px;
+            background: #1a252f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .subscribe-form button:hover {
+            background: #2c3e50;
+        }
+        @media (max-width: 768px) {
+            .footer-columns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-columns div {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Andrew's Arts</div>
+        <div>
+            <a href="../index.html">Home</a>
+            <a href="../About.html">About Us</a>
+            <a href="../shop.html">Shop</a>
+            <a href="../Gallery.html">Gallery</a>
+            <a href="../Blog.html">Blog</a>
+            <a href="ContactUS.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Privacy Policy Hero Section -->
+    <header>
+        <h1>🔒 Privacy Policy – Your Information, Your Privacy!</h1>
+        <p>We value your privacy and are committed to protecting your personal information.</p>
+    </header>
+
+    <!-- Privacy Policy Sections -->
+    <div class="container">
+        <section>
+            <h2>📖 What This Policy Covers</h2>
+            <p>This Privacy Policy explains how we collect, use, and safeguard your data when you interact with our website.</p>
+        </section>
+
+        <div class="privacy-section">
+            <h3>📑 1. Information We Collect</h3>
+            <div class="info-item">
+                <strong>Personal Details:</strong>
+                <p>We collect your name, email, and contact information when you sign up or make a purchase.</p>
+            </div>
+            <div class="info-item">
+                <strong>Payment Information:</strong>
+                <p>Your payment details are securely processed through trusted payment providers.</p>
+            </div>
+            <div class="info-item">
+                <strong>Browsing Data:</strong>
+                <p>We use cookies and analytics to enhance your browsing experience.</p>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h3>🔐 2. How We Use Your Information</h3>
+            <div class="info-item">
+                <strong>Transaction Processing:</strong>
+                <p>We use your information to process transactions and deliver products.</p>
+            </div>
+            <div class="info-item">
+                <strong>Website Improvement:</strong>
+                <p>Data helps us improve website functionality and user experience.</p>
+            </div>
+            <div class="info-item">
+                <strong>Communication:</strong>
+                <p>We send important updates, promotions, or customer service communications.</p>
+            </div>
+            <div class="info-item">
+                <strong>Security:</strong>
+                <p>We ensure website security and prevent fraud using your data responsibly.</p>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h3>🚫 3. Sharing & Security of Your Information</h3>
+            <div class="info-item">
+                <strong>No Selling or Sharing:</strong>
+                <p>We never sell or share your data with third parties unless required for legal compliance or service delivery.</p>
+            </div>
+            <div class="info-item">
+                <strong>Advanced Security Measures:</strong>
+                <p>We protect your information from unauthorized access using advanced security protocols.</p>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h3>🍪 4. Cookies & Tracking Technologies</h3>
+            <div class="info-item">
+                <strong>Cookies:</strong>
+                <p>Cookies help enhance your browsing experience by remembering preferences and improving site performance.</p>
+            </div>
+            <div class="info-item">
+                <strong>Manage Cookies:</strong>
+                <p>You can manage or disable cookies via your browser settings.</p>
+            </div>
+        </div>
+
+        <div class="privacy-section">
+            <h3>⚖ 5. Your Rights & Choices</h3>
+            <div class="info-item">
+                <strong>Access or Update Data:</strong>
+                <p>You can access or update your personal information at any time.</p>
+            </div>
+            <div class="info-item">
+                <strong>Delete Data:</strong>
+                <p>You have the right to request deletion of your data.</p>
+            </div>
+            <div class="info-item">
+                <strong>Opt Out:</strong>
+                <p>You can opt out of marketing communications.</p>
+            </div>
+            <div class="info-item">
+                <strong>Contact Us:</strong>
+                <p>If you have questions about our Privacy Policy, reach us at [contact info].</p>
+            </div>
+        </div>
+
+        <section>
+            <p>✅ By using Andrew's Arts Solutions, you agree to our Privacy Policy. We may update this policy, so please check back for the latest information.</p>
+            <a href="#contact-us" class="cta-button">Contact Us</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div>
+                    <h3>Andrew's Arts</h3>
+                    <p>Bringing exceptional artistry to your home and life with carefully curated art solutions.</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../About.html">About Us</a></li>
+                        <li><a href="../shop.html">Shop</a></li>
+                        <li><a href="../Gallery.html">Gallery</a></li>
+                        <li><a href="../Blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="ContactUS.html">Contact Us</a></li>
+                        <li><a href="Return.html">Shipping & Returns</a></li>
+                        <li><a href="FAQ.html">FAQ</a></li>
+                        <li><a href="Policy.html">Privacy Policy</a></li>
+                        <li><a href="Conditons.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subscribe-form">
+                <h3>Stay Connected</h3>
+                <p>Subscribe to receive updates on new collections and special offers.</p>
+                <form action="#">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <p>&copy; 2025 Andrew's Arts Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

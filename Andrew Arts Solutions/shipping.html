@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 60px;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .tracking-input {
+            margin-bottom: 20px;
+        }
+        .tracking-input input {
+            padding: 10px;
+            width: calc(100% - 22px);
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .tracking-input button {
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .tracking-info {
+            margin-top: 20px;
+        }
+        .status {
+            background: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a> <!-- Updated link -->
+        <a href="shipping.html">Track Shipment</a>
+    </nav>
+
+    <div class="container" id="home">
+        <h1>Shipment Tracking</h1>
+        <div class="tracking-input">
+            <input type="text" id="trackingNumber" placeholder="Enter tracking number">
+            <button onclick="trackShipment()">Track Now</button>
+        </div>
+
+        <div class="tracking-info" id="trackingInfo">
+            <!-- Tracking details will appear here -->
+        </div>
+    </div>
+
+    <script>
+        function trackShipment() {
+            const trackingNumber = document.getElementById('trackingNumber').value;
+            const trackingInfo = document.getElementById('trackingInfo');
+            
+            if (!trackingNumber) {
+                alert('Please enter a tracking number');
+                return;
+            }
+
+            // Simulate API call with timeout
+            trackingInfo.innerHTML = 'Loading...';
+            setTimeout(() => {
+                trackingInfo.innerHTML = `
+                    <div class="status">
+                        <h3>Tracking #${trackingNumber}</h3>
+                        <p><strong>Status:</strong> Out for delivery</p>
+                        <p><strong>Estimated Delivery:</strong> December 25, 2025</p>
+                        <p><strong>Current Location:</strong> Lusaka Chalala, ZM</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <h3>Shipment History</h3>
+                        <ul>
+                            <li>Dec 20: Package arrived at St Andrews sorting facility</li>
+                            <li>Dec 18: Shipment departed from Chongwe</li>
+                            <li>Dec 15: Order processed and shipped</li>
+                        </ul>
+                    </div>
+                `;
+            }, 1500);
+        }
+    </script>
+</body>
+</html>

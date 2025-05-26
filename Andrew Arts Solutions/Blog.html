@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew's Arts Solutions - Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        header {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        /* Navigation Bar */
+        nav {
+            background: #1a252f;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #3498db;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 1s ease-in-out forwards;
+        }
+        section:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+        section:nth-child(even) {
+            animation-delay: 0.4s;
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        section p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #2c3e50;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #1a252f;
+            transform: scale(1.05);
+        }
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #3498db;
+        }
+        .footer-columns {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .footer-columns div {
+            text-align: left;
+        }
+        .footer-columns h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .footer-columns ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-columns ul li {
+            margin-bottom: 5px;
+        }
+        .subscribe-form {
+            margin-top: 20px;
+        }
+        .subscribe-form input[type="email"] {
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        .subscribe-form button {
+            padding: 10px 20px;
+            background: #1a252f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .subscribe-form button:hover {
+            background: #2c3e50;
+        }
+        @media (max-width: 768px) {
+            .footer-columns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-columns div {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Header Animation Background */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: skewX(-25deg);
+            animation: slideBackground 5s linear infinite;
+        }
+        @keyframes slideBackground {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+        /* Blog Styles */
+        .blog-hero {
+            background: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .blog-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .blog-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .blog-features {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .blog-feature {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 30%;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .blog-feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .blog-feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        .blog-feature p {
+            font-size: 1rem;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .blog-feature {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+        /* Post and Comments Section */
+        .post-section {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .post-header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .post-header div {
+            flex-grow: 1;
+        }
+        .post-header h3 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        .post-header small {
+            color: #777;
+        }
+        .post-content {
+            margin-bottom: 20px;
+        }
+        .comment-section {
+            margin-top: 20px;
+        }
+        .comment {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .comment img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .comment-content {
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            flex-grow: 1;
+        }
+        .comment-content h4 {
+            margin: 0;
+            font-size: 1rem;
+        }
+        .comment-content small {
+            color: #777;
+        }
+        .comment-content p {
+            margin: 5px 0 0;
+        }
+        .add-comment {
+            margin-top: 20px;
+        }
+        .add-comment textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            resize: none;
+        }
+        .add-comment button {
+            background: #2c3e50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .add-comment button:hover {
+            background: #1a252f;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Andrew's Arts</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="About.html">About Us</a>
+            <a href="shop.html">Shop</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="Blog.html">Blog</a>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <header>
+        <h1>Welcome to Andrew's Arts Solutions</h1>
+        <p>A Creative Haven for Artists! </p>
+    </header>
+    <section class="blog-hero">
+        <h1>Step into a world where creativity knows no bounds!</h1>
+        <p>Whether you're a painter, photographer, digital artist, or writer, this is your space to share, express, and inspire.</p>
+        <a href="loginpage.html" class="cta-button">Start Sharing Your Art</a>
+    </section>
+
+    <!-- Blog Features -->
+    <div class="container">
+        <section>
+            <h2>Why Join Our Creative Community?</h2>
+            <div class="blog-features">
+                <div class="blog-feature">
+                    <h3>Post Your Masterpiece</h3>
+                    <p>Let the world see your vision! Share your latest work and get inspired by others.</p>
+                </div>
+                <div class="blog-feature">
+                    <h3>Engage with Fellow Creatives</h3>
+                    <p>Comment, critique, and celebrate artistry. Build connections with like-minded creators.</p>
+                </div>
+                <div class="blog-feature">
+                    <h3> Spread the Love</h3>
+                    <p>Like, share, and support unique works of art. Together, we grow stronger.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Post and Comment Section -->
+        <section class="post-section">
+            <div class="post-header">
+                <img src="images/HPE.jpg" alt="painting">
+                <div>
+                    <h3>Andrew Phiri</h3>
+                    <small>Posted on May 15, 2025</small>
+                </div>
+            </div>
+            <div class="post-content">
+                <p>The world is hurting. Africa is crying. This is not just a tear — it’s a call for peace, justice, and hope. Through the eyes of a child, I painted the pain of a continent... and the strength that still remains.
+
+                    This is #HOPE.
+                    
+                    #HopeForAfrica #ArtForChange #CryingContinent #AfricanChild #PrayForPeace #VoicesOfAfrica #WarAndPeace #TheWorldIsWatching #TearsOfHope #StopTheViolencePeriod</p>
+                <img src="images/HPE.jpg" alt="Artwork" style="width: 100%; border-radius: 10px; margin-top: 10px;">
+            </div>
+            <div class="comment-section">
+                <h4>Comments</h4>
+                <div class="comment">
+                    <img src="images/Andrewb.jpg" alt="User Avatar">
+                    <div class="comment-content">
+                        <h4>St Andrews</h4>
+                        <small>May 16, 2025</small>
+                        <p>This is absolutely stunning! The colors are so vibrant.</p>
+                    </div>
+                </div>
+                <div class="comment">
+                    <img src="images/meeme.jpg" alt="User Avatar">
+                    <div class="comment-content">
+                        <h4>Azelu Akumawa</h4>
+                        <small>May 17, 2025</small>
+                        <p>I love how you captured the Emotions in this painting #HOPE. Great work!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="add-comment">
+                <h4>Add a Comment</h4>
+                <textarea rows="4" placeholder="Write your comment here..."></textarea>
+                <button>Post Comment</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div>
+                    <h3>Andrew's Arts</h3>
+                    <p>Bringing exceptional artistry to your home and life with carefully curated art solutions.</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="Gallery.html">Gallery</a></li>
+                        <li><a href="Blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="Hidden/ContactUS.html">Contact Us</a></li>
+                        <li><a href="Hidden/Return.html">Shipping & Returns</a></li>
+                        <li><a href="Hidden/FAQ.html">FAQ</a></li>
+                        <li><a href="Hidden/Policy.html">Privacy Policy</a></li>
+                        <li><a href="Hidden/Conditons.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subscribe-form">
+                <h3>Stay Connected</h3>
+                <p>Subscribe to receive updates on new collections and special offers.</p>
+                <form action="#">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <p>&copy; 2025 Andrew's Arts Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

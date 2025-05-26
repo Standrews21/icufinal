@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Andrew's Arts Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        header {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        /* Navigation Bar */
+        nav {
+            background: #1a252f;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #3498db;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 1s ease-in-out forwards;
+        }
+        section:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+        section:nth-child(even) {
+            animation-delay: 0.4s;
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        section p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideInRight 1s ease-in-out forwards;
+        }
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+            transition: transform 0.3s ease;
+        }
+        .team-member img:hover {
+            transform: scale(1.1);
+        }
+        .team-member div {
+            flex-grow: 1;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #2c3e50;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #1a252f;
+            transform: scale(1.05);
+        }
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #3498db;
+        }
+        .footer-columns {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .footer-columns div {
+            text-align: left;
+        }
+        .footer-columns h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .footer-columns ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-columns ul li {
+            margin-bottom: 5px;
+        }
+        .subscribe-form {
+            margin-top: 20px;
+        }
+        .subscribe-form input[type="email"] {
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        .subscribe-form button {
+            padding: 10px 20px;
+            background: #1a252f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .subscribe-form button:hover {
+            background: #2c3e50;
+        }
+        @media (max-width: 768px) {
+            .footer-columns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-columns div {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        /* Header Animation Background */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: skewX(-25deg);
+            animation: slideBackground 5s linear infinite;
+        }
+        @keyframes slideBackground {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Andrew's Arts</div>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="About.html">About Us</a>
+            <a href="shop.html">Shop</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="Hidden/ContactUS.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>About Andrew's Arts Solutions</h1>
+        <p>Founded on a passion for artistic expression and a commitment to excellence.</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- The Artist's Journey -->
+        <section>
+            <h2>The Artist's Journey</h2>
+            <p>Andrew's artistic journey began in 2006, inspired by the interplay of light, form, and emotion.</p>
+            <p>What started as a personal exploration soon evolved into a mission to create art that not only pleases the eye but also resonates with the soul. Each piece is a culmination of technical expertise, creative vision, and emotional depth.</p>
+            <p>Today, Andrew's work is recognized for its distinctive style that bridges classical techniques with contemporary sensibilities, creating timeless pieces that enhance any space they inhabit.</p>
+        </section>
+
+        <!-- Our Mission & Values -->
+        <section>
+            <h2>Our Mission & Values</h2>
+            <p>The principles that guide our creative process and business philosophy.</p>
+            <h3>Artistic Integrity</h3>
+            <p>We believe in creating art that is authentic, original, and true to our creative vision. Every piece tells a story and carries a piece of our artistic soul.</p>
+            <h3>Exceptional Quality</h3>
+            <p>From concept to creation, we maintain the highest standards of craftsmanship and materials. Our commitment to quality ensures that each piece stands the test of time.</p>
+            <h3>Customer Connection</h3>
+            <p>We believe art is deeply personal. That's why we focus on understanding our clients' visions and preferences to create pieces that resonate on a personal level.</p>
+        </section>
+
+        <!-- Meet Our Team -->
+        <section>
+            <h2>Meet Our Team</h2>
+            <p>The talented individuals who bring Andrew's vision to life.</p>
+            <div class="team-member">
+                <img src="images/HPE.jpg" alt="Andrew Phiri">
+                <div>
+                    <h3>Andrew Phiri</h3>
+                    <p><strong>Founder & Lead Artist</strong></p>
+                    <p>With a background in fine arts, ICT, and design, Andrew brings a unique perspective to each creation.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/meeme.jpg" alt="Raphael Phiri">
+                <div>
+                    <h3>Raphael Phiri</h3>
+                    <p><strong>Creative Director</strong></p>
+                    <p>Raphael oversees the creative direction of collections and ensures cohesive artistic vision.</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="images/meeme.jpg" alt="Wezi Banda">
+                <div>
+                    <h3>Wezi Banda</h3>
+                    <p><strong>Client Relations</strong></p>
+                    <p>Wezi ensures that each client's experience is exceptional from first contact to final delivery.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section>
+            <h2>Let's Create Something Beautiful Together</h2>
+            <p>Whether you're looking for the perfect art piece or a custom creation, we're here to bring your vision to life.</p>
+            <a href="Gallery.html" class="cta-button">Browse Collection</a>
+            <a href="Hidden/ContactUS.html" class="cta-button">Contact Us</a>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div>
+                    <h3>Andrew's Arts</h3>
+                    <p>Bringing exceptional artistry to your home and life with carefully curated art solutions.</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="About.html">About Us</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="Gallery.html">Gallery</a></li>
+                        <li><a href="Blog.html">Blog</a></li>
+                        <li><a href="loginpage.html">Login</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="Hidden/ContactUS.html">Contact Us</a></li>
+                        <li><a href="Hidden/Return.html">Shipping & Returns</a></li>
+                        <li><a href="Hidden/FAQ.html">FAQ</a></li>
+                        <li><a href="Hidden/Policy.html">Privacy Policy</a></li>
+                        <li><a href="Hidden/Conditons.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subscribe-form">
+                <h3>Stay Connected</h3>
+                <p>Subscribe to receive updates on new collections and special offers.</p>
+                <form action="#">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <p>&copy; 2025 Andrew's Arts Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrew's Arts Solutions Shop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #005e75;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(90deg, #6d6c6a, #f0b470);
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 15px 20px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background-color: #2aaabb;
+    }
+    .cart-icon {
+      position: relative;
+      display: inline-block;
+    }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #ff4444;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero {
+      background: url('https://via.placeholder.com/1920x400') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
+    }
+    .filters {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+      background-color: #fadad0;grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      margin-bottom: 20px;
+    }
+    .filter-category, .filter-price {
+      display: flex;
+      align-items: center;
+    }
+    .filter-category select, .filter-price input {
+      margin-left: 10px;
+      padding: 5px;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .product-card {
+      background-color: #4ff9ff;
+      border: 1px solid #80d1f19d;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .product-card h3 {
+      font-size: 18px;
+      margin: 10px;
+    }
+    .product-card p {
+      margin: 10px;
+      color: #555;
+    }
+    .product-card button {
+      background-color: #2575fc;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .product-card button:hover {
+      background-color: #6a11cb;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .subscribe {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .subscribe input {
+      padding: 10px;
+      width: 300px;
+      margin-right: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .subscribe button {
+      padding: 10px 20px;
+      background-color: #2575fc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .subscribe button:hover {
+      background-color: #6a11cb;
+    }
+  </style>
+  <style>
+    .hero {
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(255, 255, 255);
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      background-size: cover;
+      background-position: center;
+      transition: background-image 1s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Andrew's Arts Solutions Shop!</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="About.html">About Us</a>
+    <a href="shop.html">Shop</a>
+    <a href="Gallery.html">Gallery</a>
+    <a href="Blog.html">Blog</a>
+    <a href="loginpage.html">Login</a>
+    <a href="AddCart.html" class="cart-icon">🛒 Cart <span class="cart-count" id="cartCount">0</span></a>
+  </nav>
+  <div class="hero">
+    <h2>Discover Unique and Captivating Pieces</h2>
+  </div>
+  <div class="filters">
+    <div class="filter-category">
+      <label for="category">Category:</label>
+      <select id="category">
+        <option value="all">All</option>
+        <option value="paintings">Paintings/Drawings</option>
+        <option value="phones">Phones</option>
+        <option value="laptops">Laptops</option>
+        <option value="men-clothes">Men's Clothes</option>
+        <option value="women-clothes">Women's Clothes</option>
+        <option value="electronics">Electronics</option>
+      </select>
+    </div>
+    <div class="filter-price">
+      <label for="price-min">Price Range:</label>
+      <input type="number" id="price-min" placeholder="Min">
+      <input type="number" id="price-max" placeholder="Max">
+    </div>
+  </div>
+  <div class="products">
+    <div class="product-card">
+      <img src="images/sprash el.jpg" alt="Product 1">
+      <h3>Painting</h3>
+      <p>k150</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/Bset.jpg" alt="Product 2">
+      <h3>painting</h3>
+      <p>k699</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/6.jpg" alt="Product 3">
+      <h3>painting</h3>
+      <p>k1299</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/5.jpg" alt="Product 4">
+      <h3>painting</h3>
+      <p>k89</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/4.jpg" alt="Product 5">
+      <h3>painting</h3>
+      <p>k129</p>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="images/3.jpg" alt="Product 6">
+      <h3>painting</h3>
+      <p>k49</p>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+  <div class="subscribe">
+    <h3>Stay Connected</h3>
+    <p>Subscribe to receive updates on exclusive collections and special offers.</p>
+    <input type="email" placeholder="Enter your email">
+    <button>Subscribe</button>
+  </div>
+  <footer>
+    <p>&copy; Andrew's Arts Solutions. All rights reserved.</p>
+    <p>
+      <a href="index.html" style="color: white;">Home</a> |
+      <a href="About.html" style="color: white;">About Us</a> |
+      <a href="shop.html" style="color: white;">Shop</a> |
+      <a href="Gallery.html" style="color: white;">Gallery</a> |
+      <a href="Blog.html" style="color: white;">Blog</a> |
+      <a href="loginpage.html" style="color: white;">Login</a>
+    </p>
+  </footer>
+  <script>
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      const heroSection = document.querySelector(".hero");
+      const images = [
+        "images/1.jpg",
+        "images/Bg.jpg",
+        "images/yesu.jpg"
+      ];
+      let currentIndex = 0;
+
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        heroSection.style.backgroundImage = `url('${images[currentIndex]}')`;
+      }, 10000); // Change image every 10 seconds
+
+      // Update cart count on page load
+      updateCartCount();
+
+      // Add event listeners to all "Add to Cart" buttons
+      const addToCartButtons = document.querySelectorAll('.product-card button');
+      addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const productCard = this.closest('.product-card');
+          const productName = productCard.querySelector('h3').textContent;
+          const productPrice = productCard.querySelector('p').textContent;
+          const productImage = productCard.querySelector('img').src;
+          
+          // Add item to cart
+          addToCart({
+            name: productName,
+            price: productPrice,
+            image: productImage
+          });
+          
+          // Redirect to cart page
+          window.location.href = 'Hidden/AddCart.html';
+        });
+      });
+    });
+
+    function addToCart(product) {
+      // Check if item already exists in cart
+      const existingItem = cartItems.find(item => item.name === product.name);
+      
+      if (existingItem) {
+        existingItem.quantity = (existingItem.quantity || 1) + 1;
+      } else {
+        product.quantity = 1;
+        cartItems.push(product);
+      }
+      
+      // Save to localStorage
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      updateCartCount();
+    }
+
+    function updateCartCount() {
+      const cartCount = document.getElementById('cartCount');
+      const totalItems = cartItems.reduce((total, item) => total + (item.quantity || 1), 0);
+      cartCount.textContent = totalItems;
+    }
+  </script>
+</body>
+</html>

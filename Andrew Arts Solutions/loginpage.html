@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Registration Form</title>
+  <style>
+    @font-face {
+      font-family: 'Montezelant Bold';
+      src: url('path-to-font/Montezelant-Bold.woff2') format('woff2'),
+           url('path-to-font/Montezelant-Bold.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montezelant Bold', 'Arial', sans-serif;
+      background: linear-gradient(135deg, #2053fa, #a777e3);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .form-container {
+      position: relative;
+      width: 90%;
+      max-width: 400px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .form-toggle {
+      display: flex;
+      justify-content: space-around;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 10px;
+    }
+
+    .form-toggle button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 10px 20px;
+      transition: all 0.3s ease;
+    }
+
+    .form-toggle button.active {
+      background: #a777e3;
+      border-radius: 10px;
+    }
+
+    .form-toggle button:hover:not(.active) {
+      color: #a777e3;
+    }
+
+    .form-content {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .form-content h2 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      position: relative;
+      margin: 20px 0;
+      width: 100%;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 15px 10px;
+      border: none;
+      outline: none;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .input-group input:focus,
+    .input-group input:hover {
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .input-group label {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 0.9rem;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .input-group input:focus + label,
+    .input-group input:not(:placeholder-shown) + label {
+      top: -10px;
+      font-size: 0.8rem;
+      color: #a777e3;
+    }
+
+    .error-message {
+      color: #ff4d4d;
+      font-size: 0.9rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 15px;
+      background: #a777e3;
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .submit-btn:hover {
+      background: #6e8efb;
+      box-shadow: 0 0 10px rgba(106, 142, 251, 0.7);
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-content {
+        padding: 20px;
+      }
+
+      .form-content h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <div class="form-toggle">
+      <button id="login-toggle" class="active">Login</button>
+      <button id="register-toggle">Register</button>
+    </div>
+    <div id="login-form" class="form-content">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <input type="text" id="loginUsername" placeholder=" " required>
+          <label for="loginUsername">Username</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="loginPassword" placeholder=" " required>
+          <label for="loginPassword">Password</label>
+        </div>
+        <p id="loginError" class="error-message">Invalid username or password.</p>
+        <button type="submit" class="submit-btn">Login</button>
+      </form>
+    </div>
+    <div id="register-form" class="form-content" style="display: none;">
+      <h2>Register</h2>
+      <form id="registerForm">
+        <div class="input-group">
+          <input type="text" id="registerUsername" placeholder=" " required>
+          <label for="registerUsername">Username</label>
+        </div>
+        <div class="input-group">
+          <input type="email" id="registerEmail" placeholder=" " required>
+          <label for="registerEmail">Email</label>
+        </div>
+        <div class="input-group">
+          <input type="password" id="registerPassword" placeholder=" " required>
+          <label for="registerPassword">Password</label>
+        </div>
+        <p id="registerError" class="error-message">Please fill all fields correctly.</p>
+        <button type="submit" class="submit-btn">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    &copy; Copyright Andrew Phiri
+    <p>
+      <a href="index.html" style="color: white;">Home</a> |
+      <a href="About.html" style="color: white;">About Us</a> |
+      <a href="shop.html" style="color: white;">Shop</a> |
+      <a href="Gallery.html" style="color: white;">Gallery</a> |
+      <a href="Blog.html" style="color: white;">Blog</a> |
+      <a href="loginpage.html" style="color: white;">Login</a>
+    </p>
+  </footer>
+
+  <script>
+    const loginToggle = document.getElementById('login-toggle');
+    const registerToggle = document.getElementById('register-toggle');
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+    const loginError = document.getElementById('loginError');
+    const registerError = document.getElementById('registerError');
+
+    loginToggle.addEventListener('click', () => {
+      loginToggle.classList.add('active');
+      registerToggle.classList.remove('active');
+      loginForm.style.display = 'block';
+      registerForm.style.display = 'none';
+    });
+
+    registerToggle.addEventListener('click', () => {
+      registerToggle.classList.add('active');
+      loginToggle.classList.remove('active');
+      registerForm.style.display = 'block';
+      loginForm.style.display = 'none';
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('loginUsername').value.trim();
+      const password = document.getElementById('loginPassword').value.trim();
+
+      if (!username || !password) {
+        loginError.textContent = 'Please fill all fields.';
+        loginError.style.display = 'block';
+      } else {
+        loginError.style.display = 'none';
+        alert('Login successful!');
+        window.location.href = 'Blog.html'; // Redirect to Blog page
+      }
+    });
+
+    document.getElementById('registerForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('registerUsername').value.trim();
+      const email = document.getElementById('registerEmail').value.trim();
+      const password = document.getElementById('registerPassword').value.trim();
+
+      if (!username || !email || !password) {
+        registerError.textContent = 'Please fill all fields.';
+        registerError.style.display = 'block';
+      } else if (!validateEmail(email)) {
+        registerError.textContent = 'Please enter a valid email.';
+        registerError.style.display = 'block';
+      } else {
+        registerError.style.display = 'none';
+        alert('Registration successful!');
+        window.location.href = 'Blog.html'; // Redirect to Blog page
+      }
+    });
+
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+  </script>
+</body>
+</html>

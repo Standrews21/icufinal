@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Andrew's Arts Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        /* Navigation Bar */
+        nav {
+            background: #1a252f;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ff7e5f;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        section {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 1s ease-in-out forwards;
+        }
+        section:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+        section:nth-child(even) {
+            animation-delay: 0.4s;
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        section p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        .faq-section {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .faq-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .faq-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ff7e5f;
+        }
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        .faq-item strong {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .faq-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ff7e5f;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #feb47b;
+            transform: scale(1.05);
+        }
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #ff7e5f;
+        }
+        .footer-columns {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .footer-columns div {
+            text-align: left;
+        }
+        .footer-columns h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .footer-columns ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-columns ul li {
+            margin-bottom: 5px;
+        }
+        .subscribe-form {
+            margin-top: 20px;
+        }
+        .subscribe-form input[type="email"] {
+            padding: 10px;
+            width: 200px;
+            border: none;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+        .subscribe-form button {
+            padding: 10px 20px;
+            background: #1a252f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .subscribe-form button:hover {
+            background: #2c3e50;
+        }
+        @media (max-width: 768px) {
+            .footer-columns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-columns div {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Andrew's Arts</div>
+        <div>
+            <a href="../index.html">Home</a>
+            <a href="../About.html">About Us</a>
+            <a href="../shop.html">Shop</a>
+            <a href="../Gallery.html">Gallery</a>
+            <a href="../Blog.html">Blog</a>
+            <a href="ContactUS.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- FAQ Hero Section -->
+    <header>
+        <h1>❓ Frequently Asked Questions (FAQ)</h1>
+        <p>We've Got Answers!</p>
+    </header>
+
+    <!-- FAQ Sections -->
+    <div class="container">
+        <section>
+            <h2>Welcome to Our FAQ Section!</h2>
+            <p>Here, you’ll find quick answers to the most common questions about Andrew's Arts Solutions.</p>
+        </section>
+
+        <div class="faq-section">
+            <h3>🛍 Shopping & Orders</h3>
+            <div class="faq-item">
+                <strong>How do I place an order?</strong>
+                <p>Simply browse our store, add items to your cart, and follow the checkout process!</p>
+            </div>
+            <div class="faq-item">
+                <strong>Can I modify or cancel an order after placing it?</strong>
+                <p>Orders can only be modified or canceled within 48 hours of placing them. Contact our support team for help!</p>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h3>📦 Shipping & Delivery</h3>
+            <div class="faq-item">
+                <strong>How long does shipping take?</strong>
+                <p>Delivery times vary depending on location and shipping method. Standard shipping typically takes [X] days.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Do you offer international shipping?</strong>
+                <p>Yes! We ship worldwide. Visit our shipping policy for details.</p>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h3>🔄 Returns & Refunds</h3>
+            <div class="faq-item">
+                <strong>What is your return policy?</strong>
+                <p>We offer hassle-free returns within [time frame]. Items must be in original condition.</p>
+            </div>
+            <div class="faq-item">
+                <strong>How do I request a refund?</strong>
+                <p>Visit our returns page, submit a request, and our team will process it within [X] days.</p>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h3>💳 Payments & Security</h3>
+            <div class="faq-item">
+                <strong>What payment methods do you accept?</strong>
+                <p>We accept credit/debit cards, PayPal, and other secure payment options.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Is my payment information secure?</strong>
+                <p>Absolutely! We use advanced encryption to protect your data.</p>
+            </div>
+        </div>
+
+        <div class="faq-section">
+            <h3>📝 Account & Support</h3>
+            <div class="faq-item">
+                <strong>Do I need an account to shop?</strong>
+                <p>No, but having an account allows you to track orders and access special offers.</p>
+            </div>
+            <div class="faq-item">
+                <strong>How can I contact customer service?</strong>
+                <p>Reach us via email, live chat, or phone at [contact info].</p>
+            </div>
+        </div>
+
+        <section>
+            <p>💡 Didn’t find the answer you need? No worries! <a href="#contact-us" class="cta-button">Contact Our Support Team</a> and we’ll be happy to assist you.</p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div>
+                    <h3>Andrew's Arts</h3>
+                    <p>Bringing exceptional artistry to your home and life with carefully curated art solutions.</p>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../About.html">About Us</a></li>
+                        <li><a href="../shop.html">Shop</a></li>
+                        <li><a href="../Gallery.html">Gallery</a></li>
+                        <li><a href="../Blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="ContactUS.html">Contact Us</a></li>
+                        <li><a href="Return.html">Shipping & Returns</a></li>
+                        <li><a href="FAQ.html">FAQ</a></li>
+                        <li><a href="Policy.html">Privacy Policy</a></li>
+                        <li><a href="Conditons.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subscribe-form">
+                <h3>Stay Connected</h3>
+                <p>Subscribe to receive updates on new collections and special offers.</p>
+                <form action="#">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <p>&copy; 2025 Andrew's Arts Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

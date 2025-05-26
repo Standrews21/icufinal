@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Andrew's Art Gallery</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    nav a {
+      color: #333;
+      text-decoration: none;
+      padding: 15px 20px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background-color: #f0f0f0;
+    }
+
+    header {
+      background: linear-gradient(90deg, #2c3e50, #4ca1af);
+      padding: 30px 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 50px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .slide-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      padding: 20px;
+    }
+
+    .slide {
+      min-width: 400px;
+      margin: 0 15px;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0.8;
+    }
+
+    .slide:hover {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .slide-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+      color: white;
+      padding: 15px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .slide:hover .slide-info {
+      transform: translateY(0);
+    }
+
+    .slide-title {
+      font-size: 1.5em;
+      margin: 0 0 8px;
+    }
+
+    .slide-description {
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.3);
+      border: none;
+      color: white;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 1.2em;
+    }
+
+    .nav-button:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .prev {
+      left: 20px;
+    }
+
+    .next {
+      right: 20px;
+    }
+
+    .slide-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+    }
+
+    .indicator {
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .indicator.active {
+      transform: scale(1.5);
+      background: white;
+    }
+
+    .featured-art {
+      margin: 50px 20px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .featured-art img {
+      width: 90%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .featured-art h2 {
+      color: #4ca1af;
+      margin: 20px 0;
+      font-size: 2em;
+    }
+
+    footer {
+      background: #2c3e50;
+      padding: 30px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: #4ca1af;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #6dd5ed;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Andrew's Art Gallery</h1>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="About.html">About Us</a>
+    <a href="shop.html">Shop</a>
+    <a href="Gallery.html">Gallery</a>
+    <a href="Blog.html">Blog</a>
+    <a href="loginpage.html">Login</a>
+  </nav>
+
+  <div class="gallery-container">
+    <button class="nav-button prev" onclick="prevSlide()">&#10094;</button>
+    <button class="nav-button next" onclick="nextSlide()">&#10095;</button>
+    
+    <div class="slide-track" id="slideTrack">
+      <div class="slide">
+        <img src="images/yesu.jpg" alt="Artwork 1">
+        <div class="slide-info">
+          <div class="slide-title">SAndrew Phiri</div>
+          <div class="slide-description">Jesus Pencle Drawing</div>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/MF.jpg" alt="Artwork 2">
+        <div class="slide-info">
+          <div class="slide-title">Andrew </div>
+          <div class="slide-description">Watercolor painting</div>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/big el.jpg" alt="Artwork 3">
+        <div class="slide-info">
+          <div class="slide-title">Andrew</div>
+          <div class="slide-description">Watercolor</div>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/2.jpg" alt="Artwork 4">
+        <div class="slide-info">
+          <div class="slide-title">Andrew</div>
+          <div class="slide-description">painting</div>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/HPE.jpg" alt="art">
+        <div class="slide-title">Andrew</div>
+        <div class="slide-description">painting</div>
+      </div>
+    </div>
+    <div class="slide-indicators" id="indicators"></div>
+  </div>
+
+  <div class="featured-art">
+    <img src="images/Bg.jpg" alt="Featured Artwork">
+    <h2>Featured: Banana Girl Watercolor painting</h2>
+    <p>A young African Girl, having the best of her moment</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2050 Andrew's Arts Solutions</p>
+    <div>
+      <a href="Hidden/Policy.html">Privacy Policy</a>
+      <a href="Hidden/Conditons.html">Terms of Service</a>
+      <a href="Hidden/ContactUS.html">Contact Curator</a>
+    </div>
+    <div>
+      <a href="index.html">Home</a> |
+      <a href="About.html">About Us</a> |
+      <a href="shop.html">Shop</a> |
+      <a href="Gallery.html">Gallery</a> |
+      <a href="Blog.html">Blog</a> |
+      <a href="loginpage.html">Login</a>
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const indicators = document.getElementById('indicators');
+
+    // Initialize indicators
+    slides.forEach((_, index) => {
+      const indicator = document.createElement('div');
+      indicator.className = 'indicator';
+      indicator.onclick = () => goToSlide(index);
+      indicators.appendChild(indicator);
+    });
+    updateIndicators();
+
+    function updateIndicators() {
+      document.querySelectorAll('.indicator').forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateIndicators();
+      const offset = -currentSlide * (slides[0].offsetWidth + 30);
+      document.getElementById('slideTrack').style.transform = `translateX(${offset}px)`;
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      goToSlide(currentSlide);
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      goToSlide(currentSlide);
+    }
+
+    // Auto slide every 5 seconds
+    setInterval(nextSlide, 5000);
+  </script>
+</body>
+</html>
